@@ -1,0 +1,34 @@
+get http://localhost:3500/users
+
+
+###
+post http://localhost:3500/createuser
+Content-Type: application/json
+
+{
+   "username":"sam",
+  "password":"sam"
+}
+
+
+###
+post http://localhost:3500/checkuser
+Content-Type: application/json
+
+{
+  "username":"sam",
+  "password":"sam"
+}
+
+###
+get http://localhost:3500/logout
+
+###
+put http://localhost:3500/modify
+Content-Type: application/json
+
+{
+  "username":"sam",
+  "password":"sammy"
+  
+}

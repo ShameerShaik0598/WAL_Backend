@@ -1,0 +1,52 @@
+post http://localhost:8000/create-user
+Content-Type: application/json
+
+{
+  "firstName":"Shamir",
+  "lastName":"Samuel",
+  "Email":"shamir@gmail.com",
+  "password":"shamir",
+  "age":"24",
+  "gender":"male"
+}
+
+###
+post http://localhost:8000/create-user
+Content-Type: application/json
+
+{
+  "firstName":"nagur",
+  "lastName":"3456",
+  "Email":"nagur@gmail.com",
+  "password":"nagur",
+  "age":"25",
+  "gender":"male"
+}
+
+
+###
+get http://localhost:8000/get-users
+
+###
+get http://localhost:8000/user/shamir@gmail.com
+
+###
+get http://localhost:8000/user/firstName/shamir
+
+###
+put http://localhost:8000/update-user
+Content-Type: application/json
+
+{
+  "firstName":"Shamir",
+  "lastName":"Samuel",
+  "Email":"shamir@gmail.com",
+  "password":"shamir",
+  "age":"24",
+  "gender":"male"
+}
+
+
+
+###
+delete http://localhost:8000/delete-user/nagur@gmail.com

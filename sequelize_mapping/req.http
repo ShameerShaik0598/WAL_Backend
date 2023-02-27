@@ -1,0 +1,174 @@
+//create customer for first model
+post http://localhost:7000/create-customer
+Content-Type: application/json
+
+{
+  "customer_id":100,
+   "customer_name":"sam",
+   "password":"sam",
+   "email":"sam@gmail.com",
+   "age":22
+}
+
+###
+post http://localhost:7000/create-customer
+Content-Type: application/json
+
+{
+  "customer_id":200,
+   "customer_name":"nagur",
+   "password":"nagur",
+   "email":"nagur@gmail.com",
+   "age":25
+}
+
+###
+post http://localhost:7000/create-customer
+Content-Type: application/json
+
+{
+  "customer_id":1400,
+   "customer_name":"p",
+   "password":"sasi",
+   "email":"sasi@gmail.com",
+   "age":"24"
+}
+
+
+###
+get http://localhost:7000/get-customers
+
+###
+get http://localhost:7000/customer/100
+
+###
+get http://localhost:7000/customer/name/sammy
+
+###
+put http://localhost:7000/update-customer
+Content-Type: application/json
+
+{
+  "customer_id":200,
+   "customer_name":"sammy"
+}
+
+###
+delete http://localhost:7000/delete-customer/100
+
+//end of first customers model
+
+
+//start of person and skills model
+###
+post http://localhost:7000/person
+Content-Type: application/json
+
+{
+  "personId":200,
+   "personName":"sam"
+   
+}
+
+
+###
+post http://localhost:7000/skill
+Content-Type: application/json
+
+{
+  "skillId":2,
+   "skill":"html",
+   "personId":200
+   
+   
+}
+
+
+//start of emp and job model with associatins one-one
+###
+post http://localhost:7000/create-emp
+Content-Type: application/json
+
+{
+  "emp_id":100,
+   "emp_name":"sam",
+   "job":{
+         "job_id":1,
+        "job_desc":"devloper"
+   }
+}
+
+###
+post http://localhost:7000/create-job
+Content-Type: application/json
+
+{
+   "job_id":3,
+   "job_desc":"tester"
+   
+}
+
+###
+get http://localhost:7000/emps
+
+//end of emp and jobs model one-one
+
+
+//start of customer and bank accounts one-many
+###
+POST http://localhost:4000/customer
+Content-Type: application/json
+{
+    "cust_id":100,
+    "cust_name":"ravi",
+    "accounts":[
+        {
+            "bank_name":"sbi",
+            "account_number":12345
+        },
+        {
+            "bank_name":"axis",
+            "account_number":34567
+        },{
+            "bank_name":"hdfc",
+            "account_number":7676767
+        }
+    ]
+}
+
+
+//start of users,address,skills model (one-one and one-many)
+###
+POST http://localhost:7000/create-user
+Content-Type: application/json
+
+{
+    "user_id":100,
+    "user_name":"sam",
+    "address":{
+        "street":"kphb",
+        "city":"hyderabad",
+        "contactDetail":{
+          "phn":12345,
+          "landline":67890
+        }
+    },
+
+
+    "skills":[
+        {
+            "skill_id":1,
+            "skill_name":"react"
+        },
+        {
+            "skill_id":2,
+            "skill_name":"angular"
+        }
+    ]
+}
+
+###
+get http://localhost:7000/users
+
+###
+get http://localhost:7000/lazyloading-users
